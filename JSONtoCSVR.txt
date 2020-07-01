@@ -1,0 +1,12 @@
+# Convert JSON to CSV
+
+library(jsonlite)
+
+file_path <- '/Users/Shared/yelp_academic_dataset_review.json'
+
+# Change the 'n' parameter according to each json file size
+tcsv<-jsonlite::stream_in(textConnection(readLines(file_name, n=2000000)),verbose=F)
+
+length(tcsv)
+
+write.csv(tcsv,"yelp_review.csv",row.names = F)
